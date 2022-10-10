@@ -7,11 +7,16 @@ import "./index.css";
 import App from "./App";
 import CreateTimer from "./components/Pages/CreateTimer";
 import EditTimer from "./components/Pages/EditTimer";
+import LoginRegister from "./components/Pages/LoginRegister";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/login",
+    element: <LoginRegister />,
   },
   {
     path: "/create",
