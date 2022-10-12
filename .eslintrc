@@ -13,6 +13,9 @@
     "comma-dangle": ["error", "never"],
     "@typescript-eslint/comma-dangle": "off",
     "react/jsx-props-no-spreading": "off",
-    "jsx-quotes": ["error", "prefer-single"]
+    "jsx-quotes": ["error", "prefer-single"],
+    "implicit-arrow-linebreak": "off",
+    "object-curly-newline": "off",
+    "react/jsx-one-expression-per-line": "off"
   }
 }

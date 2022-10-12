@@ -10,8 +10,8 @@ type FormData = {
 const CreateTimer = () => {
   const {
     register,
-    handleSubmit,
-    formState: { errors }
+    handleSubmit
+    // formState: { errors }
   } = useForm<FormData>()
 
   const toast = useToast()
@@ -19,7 +19,8 @@ const CreateTimer = () => {
   const onSubmit = async (formData: FieldValues) => {
     try {
       const response = await fetch('http://localhost:8080/timer', {
-        method: 'POST'
+        method: 'POST',
+        body: JSON.stringify(formData)
       })
       const data = await response.json()
       toast({
