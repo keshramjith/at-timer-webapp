@@ -1,8 +1,6 @@
-import React from "react";
-import { Input } from "@chakra-ui/react";
+import React from 'react'
+import { Input } from '@chakra-ui/react'
 
-const Clock = () => {
-  return <Input type="time" />;
-};
+const Clock = () => <Input type='time' />
 
-export default Clock;
+export default Clock
