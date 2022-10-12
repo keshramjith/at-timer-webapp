@@ -1,85 +1,30 @@
+import { Heading, Text, VStack } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import {
-  Button,
-  FormLabel,
-  Heading,
-  Input,
-  Text,
-  VStack
-} from '@chakra-ui/react'
-import { useForm } from 'react-hook-form'
-import Container from '../Container'
 
-type LoginRegisterType = {
-  email: string
-  password: string
-}
+import Login from '../Login'
+import Register from '../Register'
 
 type State = 'login' | 'register'
 
 const LoginRegister: React.FC = () => {
   const [state, setState] = useState<State>('login')
-  const { register, handleSubmit } = useForm<LoginRegisterType>()
-
-  const handleCreateUser = (formData: LoginRegisterType) =>
-    console.log('create user with formData: ', formData)
-
-  const handleLoginUser = (formData: LoginRegisterType) =>
-    console.log('login user with formData: ', formData)
 
   return (
-    <Container>
-      <VStack>
-        <Heading>{state === 'login' ? 'Login' : 'Create account'}</Heading>
-        <form
-          onSubmit={handleSubmit(
-            state === 'login' ? handleLoginUser : handleCreateUser
-          )}
-        >
-          <FormLabel>
-            Email:
-            <Input
-              type='text'
-              placeholder='email@address.com'
-              {...register('email')}
-            />
-          </FormLabel>
-          <FormLabel>
-            Password:
-            <Input
-              type='password'
-              placeholder='*********'
-              {...register('password')}
-            />
-          </FormLabel>
-          {state === 'login' ? (
-            <VStack>
-              <Button type='submit' colorScheme='teal'>
-                Login
-              </Button>
-              <Text>
-                New to Activity Timer? Click
-                <Text as='u' onClick={() => setState('register')}>
-                  here
-                </Text>
-                to sign up!
-              </Text>
-            </VStack>
-          ) : (
-            <VStack>
-              <Button colorScheme='teal'>Create account</Button>
-              <Text>
-                Already have an account? Click
-                <Text as='u' onClick={() => setState('login')}>
-                  here
-                </Text>
-                to sign in!
-              </Text>
-            </VStack>
-          )}
-        </form>
-      </VStack>
-    </Container>
+    <VStack>
+      {state === 'login' ? (
+        <>
+          <Heading>Login</Heading>
+          <Login />
+          <Text onClick={() => setState('register')}>New to Activity Timer? Click here to sign up!</Text>
+        </>
+      ) : (
+        <>
+          <Heading>Create an account</Heading>
+          <Register />
+          <Text onClick={() => setState('login')}>Already have an account? Click here to sign in!</Text>
+        </>
+      )}
+    </VStack>
   )
 }
 

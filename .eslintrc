@@ -6,16 +6,14 @@
   "rules": {
     "quotes": ["error", "single"],
     "@typescript-eslint/semi": ["error", "never"],
-    "react/function-component-definition": [
-      "error",
-      { "namedComponents": "arrow-function" }
-    ],
+    "react/function-component-definition": ["error", { "namedComponents": "arrow-function" }],
     "comma-dangle": ["error", "never"],
     "@typescript-eslint/comma-dangle": "off",
     "react/jsx-props-no-spreading": "off",
     "jsx-quotes": ["error", "prefer-single"],
     "implicit-arrow-linebreak": "off",
     "object-curly-newline": "off",
-    "react/jsx-one-expression-per-line": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "max-len": ["warn", { "code": 120 }]
   }
 }
