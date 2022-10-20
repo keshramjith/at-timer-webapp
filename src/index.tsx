@@ -4,22 +4,34 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import './index.css'
-import App from './App'
+import Dashboard from './components/Pages/Dashboard'
 import CreateTimer from './components/Pages/CreateTimer'
 import EditTimer from './components/Pages/EditTimer'
-import LoginRegister from './components/Pages/LoginRegister'
+import Login from './components/Login'
+import Register from './components/Register'
+import App from './App'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />
+    element: <App />,
+    children: [
+      {
+        index: true,
+        element: <Login />
+      },
+      {
+        path: '/register',
+        element: <Register />
+      }
+    ]
   },
   {
     path: '/user/:id'
   },
   {
-    path: '/login',
-    element: <LoginRegister />
+    path: '/dashboard',
+    element: <Dashboard />
   },
   {
     path: '/create',
